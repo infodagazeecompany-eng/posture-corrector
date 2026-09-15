@@ -90,7 +90,7 @@ button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:12px;backg
 <div class="pad">
 <h1>Back Posture Corrector Belt with Metal Support Rods</h1>
 <div class="desc">Adjustable posture support belt with metal support rods and breathable material. Easy to wear for your daily routine.</div>
-<div class="price"><span class="old">Rs. 1,599</span>Rs. 799</div>
+<div class="price"><span class="old">Rs. 1,599</span>Rs. 999</div>
 
 <div class="order" id="order">
 <h2>Place Your Order</h2>
@@ -102,9 +102,9 @@ button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:12px;backg
 <label>Landmark</label><input id="landmark" placeholder="Nearby landmark">
 <label>City</label><input id="city" required placeholder="City">
 <label>Quantity</label>
-<select id="qty"><option value="1">1 Belt — Rs. 799</option><option value="2">2 Belts — Rs. 1,499</option></select>
+<select id="qty"><option value="1">1 Belt — Rs. 999</option><option value="2">2 Belts — Rs. 1,499</option></select>
 <div class="summary">
-<div><span>Product</span><b id="productPrice">Rs. 799</b></div>
+<div><span>Product</span><b id="productPrice">Rs. 999</b></div>
 <div><span>Delivery Charges</span><b>Rs. 250</b></div>
 <div class="total"><span>Total</span><b id="totalPrice">Rs. 1,049</b></div>
 </div>
@@ -170,7 +170,7 @@ button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:12px;backg
         <h2>🛍️ Order Details</h2>
         <div class="ty-row"><span class="ty-label">Product</span><span class="ty-value">Back Posture Corrector Belt</span></div>
         <div class="ty-row"><span class="ty-label">Quantity</span><span class="ty-value" id="tyQty">1</span></div>
-        <div class="ty-row"><span class="ty-label">Total</span><span class="ty-value" id="tyTotal">Rs. 1,049</span></div>
+        <div class="ty-row"><span class="ty-label">Total</span><span class="ty-value" id="tyTotal">Rs. 1,249</span></div>
         <div class="ty-row"><span class="ty-label">Payment Method</span><span class="ty-value">Cash on Delivery</span></div>
       </div>
 
@@ -192,7 +192,7 @@ button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:12px;backg
 <script>
 const qty=document.getElementById('qty');
 function updatePrice(){
- const product=qty.value==='2'?1499:799,total=product+250;
+ const product=qty.value==='2'?1499:999,total=product+250;
  document.getElementById('productPrice').textContent='Rs. '+product.toLocaleString();
  document.getElementById('totalPrice').textContent='Rs. '+total.toLocaleString();
  document.getElementById('btn').textContent='CONFIRM ORDER — Rs. '+total.toLocaleString();
@@ -238,7 +238,7 @@ if(location.hash==='#thank-you') showThankYou();
 function placeOrder(e){
   e.preventDefault();
 
-  const productPrice = qty.value === '2' ? 1499 : 799;
+  const productPrice = qty.value === '2' ? 1499 : 999;
   const deliveryCharge = 250;
   const total = productPrice + deliveryCharge;
 
