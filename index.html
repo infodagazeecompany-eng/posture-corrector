@@ -80,6 +80,23 @@ button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:12px;backg
 }
 
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '931438176228298');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=931438176228298&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 </head>
 <body>
 <div class="top"><div id="review">★★★★★ “Bohat comfortable hai, sitting ke waqt support milta hai.” — Ayesha</div></div>
@@ -106,7 +123,7 @@ button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:12px;backg
 <div class="summary">
 <div><span>Product</span><b id="productPrice">Rs. 999</b></div>
 <div><span>Delivery Charges</span><b>Rs. 250</b></div>
-<div class="total"><span>Total</span><b id="totalPrice">Rs. 1,049</b></div>
+<div class="total"><span>Total</span><b id="totalPrice">Rs. 1,249</b></div>
 </div>
 <button id="btn" type="submit">CONFIRM ORDER — Rs. 1,049</button>
 </form>
@@ -222,6 +239,16 @@ function showThankYou(){
     if(order){
       if(order.quantity) document.getElementById('tyQty').textContent=order.quantity;
       if(order.total) document.getElementById('tyTotal').textContent='Rs. '+Number(order.total).toLocaleString();
+      const trackedKey = 'metaPurchaseTracked_' + (order.orderId || 'legacy');
+      if(!localStorage.getItem(trackedKey) && typeof fbq === 'function'){
+        fbq('track', 'Purchase', {
+          value: Number(order.total) || 0,
+          currency: 'PKR',
+          content_name: 'Back Posture Corrector Belt',
+          content_type: 'product'
+        });
+        localStorage.setItem(trackedKey, '1');
+      }
     }
   }catch(err){}
   window.scrollTo(0,0);
@@ -243,6 +270,7 @@ function placeOrder(e){
   const total = productPrice + deliveryCharge;
 
   const order = {
+    orderId: 'ORD-' + Date.now() + '-' + Math.random().toString(36).slice(2,8),
     name: document.getElementById('name').value.trim(),
     phone: document.getElementById('phone').value.trim(),
     address: document.getElementById('address').value.trim(),
