@@ -122,17 +122,51 @@ setInterval(()=>{
 },3500);
 
 function placeOrder(e){
- e.preventDefault();
- const order={
- name:document.getElementById('name').value,
- phone:document.getElementById('phone').value,
- address:document.getElementById('address').value,
- landmark:document.getElementById('landmark').value,
- city:document.getElementById('city').value,
- quantity:qty.value
- };
- localStorage.setItem('pendingOrder',JSON.stringify(order));
- alert('Order form is ready. Connect this form to your Google Sheet/backend before going live.');
+  e.preventDefault();
+
+  const productPrice = qty.value === '2' ? 1499 : 799;
+  const deliveryCharge = 250;
+  const total = productPrice + deliveryCharge;
+
+  const order = {
+    name: document.getElementById('name').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    address: document.getElementById('address').value.trim(),
+    landmark: document.getElementById('landmark').value.trim(),
+    city: document.getElementById('city').value.trim(),
+    quantity: qty.value,
+    productPrice: productPrice,
+    deliveryCharge: deliveryCharge,
+    total: total
+  };
+
+  const btn = document.getElementById('btn');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'PLACING ORDER...';
+
+  fetch('https://script.google.com/macros/s/AKfycbzI0xm4asyW5FMRe6sDnlTTJYE96GEa5eaUpNML2kJA9gwbnuzmpuksMYDRMw3F4lZN/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8'
+    },
+    body: JSON.stringify(order)
+  })
+  .then(() => {
+    localStorage.setItem('pendingOrder', JSON.stringify(order));
+    alert('Order successfully received. Shukriya!');
+    document.querySelector('form').reset();
+    updatePrice();
+    btn.disabled = false;
+    btn.textContent = originalText;
+  })
+  .catch((error) => {
+    console.error(error);
+    alert('Order submit nahi ho saka. Please dobara try karein.');
+    btn.disabled = false;
+    btn.textContent = originalText;
+  });
 }
 </script>
 </body>
