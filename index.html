@@ -34,6 +34,51 @@ button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:12px;backg
 .benefit{padding:11px 0;border-bottom:1px solid #e8ece6;font-size:14px;color:#374034}
 .footer{background:#111711;color:#aeb7aa;text-align:center;padding:20px;font-size:12px}
 @media(max-width:650px){h1{font-size:26px}.pad{padding:17px}.top{height:46px;font-size:11px}.section{padding:24px 17px}}
+
+/* Thank You Page */
+#thankYouPage{display:none;min-height:100vh;background:#f3f7f3;color:#142319}
+.ty-top{background:linear-gradient(90deg,#123b22,#1d6337,#123b22);color:#fff;padding:16px 12px;display:flex;justify-content:center;gap:70px;flex-wrap:wrap;font-size:14px;font-weight:700}
+.ty-top span{display:flex;align-items:center;gap:7px}
+.ty-wrap{max-width:820px;margin:30px auto;padding:0 16px}
+.ty-card{background:#fff;border-radius:22px;padding:40px 30px;box-shadow:0 10px 40px rgba(20,60,30,.10);text-align:center}
+.ty-check{width:110px;height:110px;margin:0 auto 18px;border-radius:50%;background:#20a04b;color:#fff;font-size:70px;line-height:110px}
+.ty-card h1{font-size:50px;margin:8px 0 14px;color:#10251a}
+.ty-success{display:inline-block;background:#d7f1dc;color:#123d23;padding:11px 24px;border-radius:30px;font-size:19px;font-weight:800}
+.ty-intro{font-size:18px;color:#5b625d;line-height:1.55;max-width:650px;margin:18px auto 28px}
+.ty-box{text-align:left;background:#f8faf8;border-radius:16px;padding:23px;margin-top:20px}
+.ty-box h2{margin:0 0 20px;font-size:24px}
+.ty-steps{display:flex;gap:18px;text-align:center}
+.ty-step{flex:1}
+.ty-icon{width:60px;height:60px;border-radius:50%;background:#e2f5e6;color:#17743a;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:28px}
+.ty-step b{display:block;font-size:16px;margin-bottom:7px}
+.ty-step p{margin:0;color:#626a64;line-height:1.45;font-size:14px}
+.ty-details{background:#eef8f0}
+.ty-details h2{color:#155e30}
+.ty-row{display:flex;justify-content:space-between;gap:15px;padding:9px 0;border-bottom:1px solid #d8e6da;font-size:15px}
+.ty-row:last-child{border-bottom:0}
+.ty-label{color:#59645c}.ty-value{font-weight:700;text-align:right}
+.ty-btn{display:block;text-decoration:none;margin-top:16px;padding:15px;border-radius:11px;font-size:17px;font-weight:800;text-align:center}
+.ty-home{background:#16833d;color:#fff}
+.ty-wa{border:2px solid #16833d;color:#126a31;background:#fff}
+.ty-confidence{margin:30px 0 8px;font-size:16px;color:#4f5851}
+.ty-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:20px}
+.ty-trust div{text-align:center;color:#39433c;font-size:13px;line-height:1.4}
+.ty-ticon{font-size:27px;margin-bottom:6px}
+.ty-footer{margin-top:25px;background:#123b22;color:#fff;text-align:center;padding:20px;font-size:14px}
+@media(max-width:650px){
+ .ty-top{gap:10px 22px;font-size:11px;padding:12px 8px}
+ .ty-wrap{margin:16px auto;padding:0 9px}
+ .ty-card{padding:28px 15px;border-radius:18px}
+ .ty-check{width:90px;height:90px;line-height:90px;font-size:56px}
+ .ty-card h1{font-size:38px}
+ .ty-success{font-size:15px;padding:9px 14px}
+ .ty-intro{font-size:15px}
+ .ty-box{padding:19px 15px}
+ .ty-steps{flex-direction:column;gap:23px}
+ .ty-row{font-size:14px}
+ .ty-trust{grid-template-columns:repeat(2,1fr)}
+}
+
 </style>
 </head>
 <body>
@@ -98,6 +143,52 @@ button{width:100%;border:0;border-radius:10px;padding:15px;margin-top:12px;backg
 <div class="footer">Cash on Delivery • Posture Support Belt</div>
 </div>
 
+
+<div id="thankYouPage">
+  <div class="ty-top">
+    <span>🚚 Cash on Delivery</span>
+    <span>🛡️ 7 Days Easy Return</span>
+    <span>🔒 100% Secure Order</span>
+  </div>
+  <div class="ty-wrap">
+    <div class="ty-card">
+      <div class="ty-check">✓</div>
+      <h1>Thank You!</h1>
+      <div class="ty-success">Your Order Has Been Placed Successfully 🎉</div>
+      <p class="ty-intro">We have received your order and our team will contact you soon to confirm your details.</p>
+
+      <div class="ty-box">
+        <h2>What Happens Next?</h2>
+        <div class="ty-steps">
+          <div class="ty-step"><div class="ty-icon">☎</div><b>1. Confirmation Call</b><p>Our team will call you shortly to confirm your order details.</p></div>
+          <div class="ty-step"><div class="ty-icon">🚚</div><b>2. Processing</b><p>Your order will be packed and shipped to your address.</p></div>
+          <div class="ty-step"><div class="ty-icon">⌂</div><b>3. Get It At Your Door</b><p>Pay cash on delivery and receive your product.</p></div>
+        </div>
+      </div>
+
+      <div class="ty-box ty-details">
+        <h2>🛍️ Order Details</h2>
+        <div class="ty-row"><span class="ty-label">Product</span><span class="ty-value">Back Posture Corrector Belt</span></div>
+        <div class="ty-row"><span class="ty-label">Quantity</span><span class="ty-value" id="tyQty">1</span></div>
+        <div class="ty-row"><span class="ty-label">Total</span><span class="ty-value" id="tyTotal">Rs. 1,049</span></div>
+        <div class="ty-row"><span class="ty-label">Payment Method</span><span class="ty-value">Cash on Delivery</span></div>
+      </div>
+
+      <a class="ty-btn ty-home" href="#" onclick="hideThankYou();return false;">⌂ &nbsp; Back to Website</a>
+      <a class="ty-btn ty-wa" href="https://wa.me/" target="_blank">◉ &nbsp; Chat on WhatsApp</a>
+
+      <div class="ty-confidence">Shop with Confidence</div>
+      <div class="ty-trust">
+        <div><div class="ty-ticon">🚚</div>Fast Delivery<br>All Over Pakistan</div>
+        <div><div class="ty-ticon">🛡️</div>7 Days<br>Easy Return</div>
+        <div><div class="ty-ticon">🔒</div>100% Secure<br>Shopping</div>
+        <div><div class="ty-ticon">🎧</div>Dedicated<br>Customer Support</div>
+      </div>
+    </div>
+  </div>
+  <div class="ty-footer">Thank you for choosing a healthier you! 💚</div>
+</div>
+
 <script>
 const qty=document.getElementById('qty');
 function updatePrice(){
@@ -120,6 +211,29 @@ setInterval(()=>{
  const e=document.getElementById('review');e.style.opacity=0;
  setTimeout(()=>{i=(i+1)%reviews.length;e.textContent=reviews[i];e.style.opacity=1},300);
 },3500);
+
+
+function showThankYou(){
+  document.querySelector('.top').style.display='none';
+  document.querySelector('.container').style.display='none';
+  document.getElementById('thankYouPage').style.display='block';
+  try{
+    const order=JSON.parse(localStorage.getItem('pendingOrder')||'null');
+    if(order){
+      if(order.quantity) document.getElementById('tyQty').textContent=order.quantity;
+      if(order.total) document.getElementById('tyTotal').textContent='Rs. '+Number(order.total).toLocaleString();
+    }
+  }catch(err){}
+  window.scrollTo(0,0);
+}
+function hideThankYou(){
+  document.getElementById('thankYouPage').style.display='none';
+  document.querySelector('.top').style.display='';
+  document.querySelector('.container').style.display='';
+  history.replaceState(null,'',window.location.pathname+window.location.search);
+  window.scrollTo(0,0);
+}
+if(location.hash==='#thank-you') showThankYou();
 
 function placeOrder(e){
   e.preventDefault();
@@ -155,11 +269,8 @@ function placeOrder(e){
   })
   .then(() => {
     localStorage.setItem('pendingOrder', JSON.stringify(order));
-    alert('Order successfully received. Shukriya!');
-    document.querySelector('form').reset();
-    updatePrice();
-    btn.disabled = false;
-    btn.textContent = originalText;
+    window.location.hash = 'thank-you';
+    showThankYou();
   })
   .catch((error) => {
     console.error(error);
